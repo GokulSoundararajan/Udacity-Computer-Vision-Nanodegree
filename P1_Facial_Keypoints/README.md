@@ -44,34 +44,5 @@ With that in mind, here is how the pipeline to transform the train dataset looks
 ## Model architecture
 The *AlexNet* CNN architecture, `ImageNet Classification with Deep Convolutional Neural Networks, A. Krizhevsky et al. (2012)`, won the 2012 ImageNet ILSVRC challenge by a large margin: it achieved 17% top-5 error rate while the second best achieved only 26% ! 
 
-However, I did change the activation functions and added some regularization techniques that helped improve the model.
-
-| Layer               	| Details                                                                                          	|
-|---------------------	|--------------------------------------------------------------------------------------------------	|
-| Input               	| size : (227, 227, 1)                                                                             	|
-| Conv 1              	| # filters : 96;  kernel size : (4 x 4);  stride : (4 x 4);  <br>padding : 0;   activation : ELU          	|
-| Max Pooling         	| kernel size : (3 x 3);  stride : (2 x 2);  padding : 0 (VALID)                                     	|
-| Dropout             	| probability : 0.2                                                                                	|
-| Conv 2              	| # filters : 256;  kernel size : (5 x 5);  stride : (1 x 1);  <br>padding : 2 (SAME);   activation : ELU 	|
-| Batch Normalization 	| # num_features: 256                                                                                  	|
-| Max Pooling         	| kernel size : (3 x 3);  stride : (2 x 2);  padding : 0 (VALID)                                     	|
-| Conv 3              	| # filters : 384;  kernel size : (3 x 3); stride : (1 x 1); <br>padding : 1 (SAME); activation : ELU   	|
-| Batch Normalization 	| # num_features: 384                                                                                  	|
-| Dropout             	| probability : 0.4                                                                                	|
-| Conv 4              	| # filters : 384;  kernel size : (3 x 3);  stride : (1 x 1);  <br>padding : 1 (SAME);   activation : ELU  	|
-| Batch Normalization 	| # filters : 384                                                                                  	|
-| Dropout             	| probability : 0.4                                                                                	|
-| Conv 5              	| # filters : 384;  kernel size : (3 x 3);  stride : (1 x 1);  <br>padding : 1 (SAME);   activation : ELU  	|
-| Batch Normalization 	| # num_features: 384                                                                                  	|
-| Dropout             	| probability : 0.4                                                                                	|
-| Flatten             | (6 x 6 x 256) => 9216               |
-| Fully Connected 1   | # neurons : 4096; activation : ELU   |
-| Batch Normalization | # num_features: 4096                |
-| Dropout             | probability : 0.6                   |
-| Fully Connected 2   | # neurons : 4096; activation : ELU   |
-| Batch Normalization | # num_features: 4096                |
-| Dropout             | probability : 0.6                   |
-| probability : 0.6   | # neurons : 136; activation : None |
-| Output              | size : (136 x 1)                    |
 
 
